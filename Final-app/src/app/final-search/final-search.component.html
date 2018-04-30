@@ -1,0 +1,12 @@
+<input type="text" placeholder="Search for a Recipe" #searchInput>
+<button (click)="getRecipes(searchInput.value)">Search</button>
+
+
+<ul>
+  <span *ngIf="loading">loading recipes. . . </span>
+  <li *ngFor="let foundRecipe of data">
+    <h1>{{ foundRecipe.recipe.ingredientLines }}</h1>
+    <img src="{{ foundRecipe.recipe.image }}" alt="">
+    <h3><a href="{{ foundRecipe.recipe.url}}">{{ foundRecipe.recipe.url }}</a></h3>
+  </li>
+</ul>
